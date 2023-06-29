@@ -2,7 +2,7 @@
 
 ## 0. Setup
 - Create a google cloud VM
-- Install MongoDB on the VM and import data from the local MongoDB
+- Install MongoDB on the VM to store Tiki scraped data
 - Create a GCS bucket
 - Create the BigQuery database and tables
 
@@ -18,4 +18,7 @@ Script: [migrate_data](src/migrate_data.sh)
 ## 2. Load data from the GCS bucket to a Big Query table
 Script: [load_data](src/load_data.py)
 ### Workflow
-- Create a Google function t
+- Create a Google Cloud Function that triggers when the file `product.json` is uploaded to the `mongodb-data-1` bucket and loads the data into the `product` table within the `tiki` database in BigQuery
+- Output: [product_sample](data/processed_data/migrated_data)
+
+## 3. Create 
