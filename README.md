@@ -7,4 +7,4 @@
 - Create the BigQuery database and tables
 
 ## 1. Migrate data from MongoDB to GCS
-- Script: src/migrate_data.sh
+- Script: (src/migrate_data.sh)
