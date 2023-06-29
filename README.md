@@ -2,4 +2,9 @@
 
 ## 0. Setup
 - Create a google cloud VM
-- Install Mongodb
+- Install MongoDB on the VM and import data from the local MongoDB
+- Create a GCS bucket
+- Create the BigQuery database and tables
+
+## 1. Migrate data from MongoDB to GCS
+- Script: src/migrate_data.sh
