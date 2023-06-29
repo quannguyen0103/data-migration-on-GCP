@@ -2,7 +2,7 @@
 
 ## 0. Setup
 - Create a google cloud VM
-- Install MongoDB on the VM to store Tiki scraped data
+- Install MongoDB on the VM to store Tiki product data
 - Create a GCS bucket
 - Create the BigQuery database and tables
 
@@ -19,6 +19,20 @@ Script: [migrate_data](src/migrate_data.sh)
 Script: [load_data](src/load_data.py)
 ### Workflow
 - Create a Google Cloud Function that triggers when the file `product.json` is uploaded to the `mongodb-data-1` bucket and loads the data into the `product` table within the `tiki` database in BigQuery
-- Output: [product_sample](data/processed_data/migrated_data)
+- Output: [tiki_product_sample](data/processed_data/migrated_data)
 
-## 3. Create 
+## 3. Create a data mart containing seller and product infomation for the DA team to use
+Script: [creat_datamart](src/create_datamart.sql)
+### Workflow
+- Create the `seller_product` database
+- Create table `seller` and `product` from table `tiki.product`
+- Output: [seller_sample](data/processed_data/datamart/seller.csv)/[product_sample](data/processed_data/datamart/product.csv)
+
+## 4. Analyze and visualize data
+Script: [analyze_data](src/analyze_data.sql)
+### Workflow
+- Create 2 tables
+  - `product_information`: store product information - `id`, `product_name`, `category`, `seller`, `price`, `quantity_sold`, `rating`
+  - `product_origin`:  store product origin information - `id`, `product_name`, `category`, `origin`
+- Load the tables to Looker studio and visualize data
+![Alt text](data/processed_data/analysis/product_analysis.PNG)
