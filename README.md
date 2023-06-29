@@ -19,6 +19,7 @@ Script: [migrate_data](src/migrate_data.sh)
 Script: [load_data](src/load_data.py)
 ### Workflow
 - Create a Google Cloud Function that triggers when the file `product.json` is uploaded to the `mongodb-data-1` bucket and loads the data into the `product` table within the `tiki` database in BigQuery
+- Write records that failed to load to the Big Query table to `failed_records.json` for later handling
 - Output: [tiki_product_sample](data/processed_data/migrated_data)
 
 ## 3. Create a data mart containing seller and product infomation for the DA team to use
