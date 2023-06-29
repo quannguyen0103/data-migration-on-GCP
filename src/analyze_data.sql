@@ -14,6 +14,7 @@ from `upheld-ellipse-387807.tiki.product`;
 Create table `project_id.tiki.product_origin` as
 select
   u.id id
+  , u.name product_name
   , u.categories.name category
   , Case
       when a.value = "Trung Quốc" then "Trung Quốc" else "Các nước khác" end as origin
