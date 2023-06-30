@@ -15,14 +15,14 @@ Script: [migrate_data](src/migrate_data.sh)
 - After the upload process is done, remove the JSON file
 - Use `crontab` to run the script at 22:00 everyday
 
-## 2. Load data from the GCS bucket to a Big Query table
+## 2. Load data from the GCS bucket to BigQuery
 Script: [load_data](src/load_data.py)
 ### Workflow
 - Create a Google Cloud Function that triggers when the file `product.json` is uploaded to the `mongodb-data-1` bucket and loads the data into the `product` table within the `tiki` database in BigQuery
-- Write records that failed to load to the Big Query table to `failed_records.json` for later handling
+- Write records that failed to load to the BigQuery table to `failed_records.json` for later handling
 - Output: [tiki_product_sample](data/processed_data/migrated_data)
 
-## 3. Create a data mart containing seller and product infomation for the DA team to use
+## 3. Create a data mart containing seller and product infomation
 Script: [creat_datamart](src/create_datamart.sql)
 ### Workflow
 - Create the `seller_product` database
