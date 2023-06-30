@@ -29,7 +29,7 @@ Script: [creat_datamart](src/create_datamart.sql)
 - Create table `seller` and `product` from table `tiki.product`
 - Output: [seller_sample](data/processed_data/datamart/seller.csv)/[product_sample](data/processed_data/datamart/product.csv)
 
-## 4. Analyze and visualize data
+## 4. Analyze data
 Script: [analyze_data](src/analyze_data.sql)
 ### Workflow
 - Create 2 tables
